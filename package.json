@@ -1,0 +1,14 @@
+{
+  "name": "loadsave-plugin",
+  "version": "1.0.0",
+  "description": "Load/Save Plugin for TinyMCE using LocalStorage",
+  "author": "Nathan Carter (ncarter@bentley.edu)",
+  "license": "LGPL-3.0",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.4",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^1.0.2"
+  }
+}
