@@ -30,7 +30,7 @@ To use this module in your page, you must:
 ```
 
  3. Copy into your page's folder all the files in
-    [the example folder of this repository](example/),
+    [the example folder of this repository](https://github.com/lurchmath/loadsave-plugin/tree/master/example),
     with the exception of `example.html`.
  4. In your call to `tinymce.init`, be sure to include these options.
      * `plugins: "-loadsave"`
@@ -42,7 +42,7 @@ To use this module in your page, you must:
 To see all this in action, check out the example page.
 
  * [Live example](http://lurchmath.github.io/loadsave-plugin/example/example.html)
- * [Source code](example/example.html)
+ * [Source code](https://github.com/lurchmath/loadsave-plugin/blob/master/example/example.html)
 
 # License
 
