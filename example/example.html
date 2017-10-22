@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script language='javascript' src='https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js'></script>
+        <script src="https://cdn.jsdelivr.net/gh/nathancarter/jsfs@1.0.0/release/jsfs.min.js"></script>
+        <script src="loadsaveplugin.js"></script>
+        <script>
+            tinymce.init( {
+                selector : 'textarea',
+                plugins : '-loadsave',
+                menu : {
+                    file : {
+                        title : 'File',
+                        items : 'newfile openfile | savefile saveas | managefiles'
+                    }
+                }
+            } );
+        </script>
+    </head>
+    <body>
+        <textarea rows=40></textarea>
+    </body>
+</html>

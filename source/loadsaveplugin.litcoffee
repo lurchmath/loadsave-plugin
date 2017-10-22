@@ -10,14 +10,9 @@ access both.
 
 We begin by defining a class that will contain all the information needed
 regarding loading and saving a document.  An instance of this class will be
-stored as a member in the TinyMCE editor object.
-
-This convention is adopted for all TinyMCE plugins in the Lurch project;
-each will come with a class, and an instance of that class will be stored as
-a member of the editor object when the plugin is installed in that editor.
-The presence of that member indicates that the plugin has been installed,
-and provides access to the full range of functionality that the plugin
-grants to that editor.
+stored as a member in the TinyMCE editor object.  The presence of that
+member indicates that the plugin has been installed, and provides access to
+the full range of functionality that the plugin grants to that editor.
 
     class LoadSave
 
@@ -154,7 +149,7 @@ in code.
 
 ## New documents
 
-To clear the contents of the document, use this method in its `LoadSave`
+To clear the contents of the editor, use this method in its `LoadSave`
 member.  It handles notifying this instance that the document is then clean.
 It does *not* check to see if the document needs to be saved first; it just
 outright clears the editor.  It also clears the filename, so that if you
@@ -310,13 +305,13 @@ for use in later saves, and perform the save, closing the dialog.
                     callback? no
 
 Now we are sufficiently ready to pop up the dialog.  We use one made from
-[filedialog/filedialog.html](filedialog.html), which was copied from [the
-jsfs submodule](../jsfs/demo) and modified to suit the needs of this
-application.
+[filedialog.html](filedialog.html), which was taken from
+[the jsfs repository](https://github.com/nathancarter/jsfs) and modified to
+suit the needs of this application.
 
             @editor.windowManager.open {
                 title : 'Save file...'
-                url : 'filedialog/filedialog.html'
+                url : 'filedialog.html'
                 width : 600
                 height : 400
                 buttons : [
@@ -380,8 +375,8 @@ an enabled/disabled Save button, based on whether there is a file selected.
                             button.parentNode.style.backgroundColor = '#ccc'
                         break
 
-Now we install a handler for when a file is selected, save that filename for
-possible later use, and refresh the dialog.
+Now we install a handler for when a file is selected, which saves that
+filename for possible later use, and refreshes the dialog.
 
             filename = null
             @selectedFileHandler = ( newname ) ->
@@ -409,13 +404,13 @@ file will call this function.
                     callback? null, null
 
 Now we are sufficiently ready to pop up the dialog.  We use one made from
-[filedialog/filedialog.html](filedialog.html), which was copied from [the
-jsfs submodule](../jsfs/demo) and modified to suit the needs of this
-application.
+[filedialog.html](filedialog.html), which was copied from
+[the jsfs repository](https://github.com/nathancarter/jsfs) and modified to
+suit the needs of this application.
 
             @editor.windowManager.open {
                 title : 'Open file...'
-                url : 'filedialog/filedialog.html'
+                url : 'filedialog.html'
                 width : 600
                 height : 400
                 buttons : [
@@ -479,21 +474,21 @@ argument list.
         tellDialog: ( args... ) ->
             frames = document.getElementsByTagName 'iframe'
             for frame in frames
-                if 'filedialog/filedialog.html' is frame.getAttribute 'src'
+                if 'filedialog.html' is frame.getAttribute 'src'
                     return frame.contentWindow.postMessage args, '*'
 
 ## Managing files
 
 The final menu item is one that shows a dialog for managing files in the
 filesystem.  On desktop apps, no such feature is necessary, because every
-operating system comes with a file manager of its own.  In this web app,
-where we have a virtual filesystem, we must provide a file manager to access
-it and move, rename, and delete files, create folders, etc.
+operating system comes with a file manager of its own.  In web apps, where
+we have a virtual filesystem, we must provide a file manager to access it
+and move, rename, and delete files, create folders, etc.
 
         manageFiles: =>
             @editor.windowManager.open {
                 title : 'Manage files'
-                url : 'filedialog/filedialog.html'
+                url : 'filedialog.html'
                 width : 700
                 height : 500
                 buttons : [
