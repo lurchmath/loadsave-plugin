@@ -25,13 +25,13 @@ maps.
 This task copies compiled code from the releases folder to the example
 folder.
 
-    gulp.task 'create-example', [ 'compile-source' ], ->
+    gulp.task 'create-example', gulp.series 'compile-source', ->
         gulp.src 'release/*'
         .pipe gulp.dest 'example/'
 
 The default task does everything in sequence.
 
-    gulp.task 'default', [ 'create-example' ]
+    gulp.task 'default', gulp.series 'create-example'
 
 Or delete everything.
 
